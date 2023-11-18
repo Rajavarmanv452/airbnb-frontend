@@ -16,33 +16,30 @@ import { Toaster } from 'react-hot-toast';
 import SearchContextProvider from './context/SearchContext';
 
 // axios.defaults.baseURL = "http://127.0.0.1:5000";
-axios.defaults.baseURL = "http://localhost:5000";
-axios.defaults.withCredentials = true;
+axios.defaults.baseURL = 'https://airbnb-backend-service.onrender.com';
+// axios.defaults.withCredentials = true;
 
 function App() {
   return (
     <UserContextProvider>
       <SearchContextProvider>
-        <Toaster/>
+        <Toaster />
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Index />}/>
-            <Route path='/login'                element={<Login />}         />
-            <Route path='/register'             element={<Register />}      />
-            <Route path="/account"              element={<Profile />}       />
-            <Route path="/account/places"       element={<Places/>}         />
-            <Route path="/account/places/new"   element={<AddPlacesForm/>}  />
-            <Route path="/account/places/:id"   element={<AddPlacesForm/>}  />
-            <Route path="/place/:id"            element={<PlacePage/>}      />
-            <Route path="/account/bookings"     element={<Bookings/>}       />
-            <Route path="/account/bookings/:id" element={<SingleBooking/>}  />
+            <Route index element={<Index />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/account" element={<Profile />} />
+            <Route path="/account/places" element={<Places />} />
+            <Route path="/account/places/new" element={<AddPlacesForm />} />
+            <Route path="/account/places/:id" element={<AddPlacesForm />} />
+            <Route path="/place/:id" element={<PlacePage />} />
+            <Route path="/account/bookings" element={<Bookings />} />
+            <Route path="/account/bookings/:id" element={<SingleBooking />} />
           </Route>
-
         </Routes>
-
       </SearchContextProvider>
     </UserContextProvider>
-    
   );
 }
 
